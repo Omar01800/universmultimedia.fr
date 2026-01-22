@@ -573,14 +573,14 @@ main {
 
 /* Position Meximieux - adaptative */
 .map-pin[data-shop="meximieux"] {
-    top: 55%;
-    left: 30%;
+    top: 59%;
+    left: 32%;
 }
 
 /* Position Ambérieu - adaptative */
 .map-pin[data-shop="amberieu"] {
-    top: 50%;
-    left: 42%;
+    top: 54%;
+    left: 43%;
 }
 
 .pin-marker {
@@ -591,12 +591,6 @@ main {
     transform: rotate(-45deg);
     border: 3px solid white;
     box-shadow: var(--shadow-sm);
-    animation: bounce 2s ease-in-out infinite;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: rotate(-45deg) translateY(0); }
-    50% { transform: rotate(-45deg) translateY(-8px); }
 }
 
 .map-pin:hover .pin-marker {
@@ -896,3 +890,4 @@ footer p {
         padding: 0.875rem;
     }
 }
+
