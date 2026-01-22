@@ -396,6 +396,139 @@ main {
     box-shadow: var(--shadow-md);
 }
 
+/* ===== PARTENAIRES PAGE ===== */
+.partners-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.partner-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.partner-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(255, 109, 0, 0.2);
+}
+
+.partner-logo-container {
+    background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
+    padding: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.partner-logo {
+    max-width: 200px;
+    max-height: 120px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.partner-content {
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.partner-content h3 {
+    font-size: 1.5rem;
+    color: var(--dark-text);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.partner-description {
+    color: var(--gray-text);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    flex: 1;
+}
+
+.partner-description strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.partner-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: var(--light-gray);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--dark-text);
+    transition: var(--transition-fast);
+}
+
+.feature-item:hover {
+    background: rgba(255, 109, 0, 0.1);
+    transform: translateX(3px);
+}
+
+.feature-icon {
+    font-size: 1.25rem;
+}
+
+.info-banner {
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    border-left: 5px solid var(--primary-color);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-top: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    box-shadow: var(--shadow-sm);
+}
+
+.info-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.info-content h4 {
+    font-size: 1.125rem;
+    color: var(--dark-text);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.info-content p {
+    color: var(--gray-text);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.info-content strong {
+    color: var(--dark-text);
+    font-weight: 600;
+}
+
+/* ===== BOUTIQUES PAGE ===== (suite) */
+
 .map-container h2 {
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     margin-bottom: 0.5rem;
@@ -611,7 +744,7 @@ footer p {
     }
 
     nav.active {
-        max-height: 400px;
+        max-height: 500px;
         box-shadow: var(--shadow-lg);
     }
 
@@ -635,6 +768,39 @@ footer p {
     .services {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+
+    .partners-section {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .partner-logo-container {
+        padding: 2rem;
+        min-height: 140px;
+    }
+
+    .partner-logo {
+        max-width: 160px;
+        max-height: 100px;
+    }
+
+    .partner-content {
+        padding: 1.5rem;
+    }
+
+    .partner-features {
+        grid-template-columns: 1fr;
+    }
+
+    .info-banner {
+        flex-direction: column;
+        padding: 1.25rem 1.5rem;
+        gap: 1rem;
+    }
+
+    .info-icon {
+        font-size: 1.5rem;
     }
 
     .schedule-row {
