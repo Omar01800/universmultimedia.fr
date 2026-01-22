@@ -168,4 +168,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     console.log('🚀 Univers Multimédia - Site initialisé avec succès');
+
+});
+
+document.getElementById('current-year').textContent = new Date().getFullYear();
+
 });
