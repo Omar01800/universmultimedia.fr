@@ -3,109 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Univers Multimédia</title>
+    <meta name="description" content="Univers Multimédia - Réparation smartphones, tablettes, ordinateurs et vente d'accessoires dans l'Ain. Boutiques à Meximieux et Ambérieu-en-Bugey.">
+    <meta name="keywords" content="réparation téléphone, accessoires multimédia, informatique, Ain, Meximieux, Ambérieu">
+    <title>Univers Multimédia - Réparation & Accessoires Multimédia dans l'Ain</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
 <body>
     <header>
         <div class="header-container">
             <div class="logo">
-                <img src="IMAGES/LOGO/UNIVERS - MULTIMEDIA LOGO SEUL (LOGO).png" alt="Univers Multimédia">
+                <img src="IMAGES/LOGO/UNIVERS - MULTIMEDIA LOGO SEUL (LOGO).png" alt="Logo Univers Multimédia" width="80" height="80">
             </div>
-            <nav id="mainNav">
-                <a href="#accueil" class="nav-link active">Accueil</a>
+            <nav id="mainNav" aria-label="Navigation principale">
+                <a href="#accueil" class="nav-link active" aria-current="page">Accueil</a>
                 <a href="#boutiques" class="nav-link">Nos Boutiques</a>
                 <a href="#qui-sommes-nous" class="nav-link">Qui sommes-nous</a>
                 <a href="#contact" class="nav-link">Nous contacter</a>
             </nav>
-            <div class="burger" id="burger">
+            <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </header>
 
     <main>
         <!-- PAGE ACCUEIL -->
-        <div id="page-accueil" class="page-content active">
+        <section id="page-accueil" class="page-content active">
             <div class="hero">
                 <h1>Bienvenue chez UNIVERS MULTIMEDIA</h1>
                 <p>Votre partenaire de confiance pour la réparation, la vente d'accessoires multimédia et les services informatiques dans l'Ain.</p>
             </div>
 
             <div class="services">
-                <div class="service-card">
-                    <div class="service-icon">🔧</div>
+                <article class="service-card">
+                    <div class="service-icon" aria-hidden="true">🔧</div>
                     <h3>Réparation</h3>
                     <p>Smartphones, tablettes, ordinateurs - Diagnostic gratuit et réparations professionnelles avec garantie.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🛒</div>
+                </article>
+                <article class="service-card">
+                    <div class="service-icon" aria-hidden="true">🛒</div>
                     <h3>Accessoires</h3>
                     <p>Large gamme d'accessoires multimédia : coques, protections d'écran, câbles, chargeurs et plus encore.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">💻</div>
+                </article>
+                <article class="service-card">
+                    <div class="service-icon" aria-hidden="true">💻</div>
                     <h3>Services Informatiques</h3>
                     <p>Dépannage, maintenance, installations logicielles et conseils personnalisés pour particuliers et professionnels.</p>
-                </div>
+                </article>
             </div>
-        </div>
+        </section>
 
         <!-- PAGE NOS BOUTIQUES -->
-        <div id="page-boutiques" class="page-content">
+        <section id="page-boutiques" class="page-content">
             <div class="map-container">
                 <h2>Nos Boutiques dans l'Ain</h2>
-                    <h4>D'autres boutiques sont à venir</h4>
+                <p class="subtitle">D'autres boutiques sont à venir</p>
                 <div class="interactive-map">
-                    <img src="IMAGES/MAP/Blank_Map_of_Ain_Department__France__with_Communes-_1_.png" alt="Carte du département de l'Ain" class="Blank_Map_of_Ain_Department__France__with_Communes-_1_">
+                    <img src="IMAGES/MAP/Blank_Map_of_Ain_Department__France__with_Communes-_1_.png" 
+                         alt="Carte interactive du département de l'Ain" 
+                         class="map-image"
+                         loading="lazy">
                     
-                    <!-- Épingle Meximieux (Nord-Ouest, proche de Lyon) -->
-                    <div class="map-pin" style="top: 60%; left: 32%;">
+                    <!-- Épingle Meximieux -->
+                    <div class="map-pin" data-shop="meximieux">
                         <div class="pin-marker"></div>
                         <div class="shop-info">
                             <div class="shop-card">
-                                <img src="IMAGES/MAP/BOUTIQUES/bfddciacdgdadjidijb.jpg" alt="Boutique Meximieux" class="shop-image">
+                                <img src="IMAGES/MAP/BOUTIQUES/20260121_151545.jpg" 
+                                     alt="Boutique Univers Multimédia Meximieux" 
+                                     class="shop-image"
+                                     loading="lazy">
                                 <h3>Meximieux</h3>
                                 <p>Centre-ville</p>
-                                <p style="font-size: 12px; margin-top: 8px; color: #999;">📍 01800 Meximieux</p>
+                                <p class="shop-address">📍 45 Rue de Genève<br>01800 Meximieux</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Épingle Ambérieu-en-Bugey (Centre-Est) -->
-                    <div class="map-pin" style="top: 55%; left: 43%;">
+                    <!-- Épingle Ambérieu-en-Bugey -->
+                    <div class="map-pin" data-shop="amberieu">
                         <div class="pin-marker"></div>
                         <div class="shop-info">
                             <div class="shop-card">
-                                <img src="IMAGES/MAP/BOUTIQUES/bfddciacdgdadjidijb.jpg" alt="Boutique Ambérieu-en-Bugey" class="shop-image">
+                                <img src="IMAGES/MAP/BOUTIQUES/bfddciacdgdadjidijb.jpg" 
+                                     alt="Boutique Univers Multimédia Ambérieu-en-Bugey" 
+                                     class="shop-image"
+                                     loading="lazy">
                                 <h3>Ambérieu-en-Bugey</h3>
                                 <p>Zone commerciale</p>
-                                <p style="font-size: 12px; margin-top: 8px; color: #999;">📍 01500 Ambérieu</p>
+                                <p class="shop-address">📍 33 Av. Paul Painlevé<br>01500 Ambérieu-en-Bugey</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- PAGE QUI SOMMES-NOUS -->
-        <div id="page-qui-sommes-nous" class="page-content">
+        <section id="page-qui-sommes-nous" class="page-content">
             <div class="hero">
                 <h1>Qui sommes-nous ?</h1>
                 <p>Une équipe passionnée au service de vos besoins multimédia depuis plus de 5 ans.</p>
             </div>
-            <div class="service-card" style="max-width: 800px; margin: 0 auto;">
+            <article class="content-card">
                 <h3>Notre Mission</h3>
-                <p style="margin-bottom: 20px;">Chez Univers Multimédia, nous croyons que la technologie doit être accessible à tous. Notre équipe de techniciens certifiés met son expertise à votre service pour vous offrir des solutions rapides, fiables et à prix justes.</p>
+                <p>Chez Univers Multimédia, nous croyons que la technologie doit être accessible à tous. Notre équipe de techniciens certifiés met son expertise à votre service pour vous offrir des solutions rapides, fiables et à prix justes.</p>
                 <h3>Nos Valeurs</h3>
                 <p>Qualité, transparence, proximité et satisfaction client sont au cœur de nos préoccupations. Nous nous engageons à vous fournir un service irréprochable et des conseils personnalisés.</p>
-            </div>
-        </div>
+            </article>
+        </section>
 
         <!-- PAGE CONTACT -->
-        <div id="page-contact" class="page-content">
+        <section id="page-contact" class="page-content">
             <div class="contact-container">
                 <div class="schedule-table">
                     <h2>Horaires d'ouverture</h2>
@@ -139,35 +151,45 @@
                     </div>
                 </div>
 
+                <div class="contact-info">
                     <div class="contact-item">
-                        <div class="contact-icon">📱</div>
+                        <div class="contact-icon" aria-hidden="true">📱</div>
                         <div class="contact-details">
-                            <h3>Mobile</h3>
-                            <p><a href="tel:+33600000000">+33 7 82 33 24 64 (Meximieux) <br> +33 6 52 62 32 98 (Ambérieu-en-Bugey)</a></p>
+                            <h3>Téléphone</h3>
+                            <p>
+                                <a href="tel:+33782332464">07 82 33 24 64</a> (Meximieux)<br>
+                                <a href="tel:+33652623298">06 52 62 32 98</a> (Ambérieu)
+                            </p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
+                        <div class="contact-icon" aria-hidden="true">✉️</div>
                         <div class="contact-details">
                             <h3>Email</h3>
-                            <p><a href="mailto:contact@univers-multimedia.fr">universmultimedia01@gmail.com (Meximieux) <br> cyber01500@gmail.com (Ambérieu-en-Bugey)</a></p>
+                            <p>
+                                <a href="mailto:universmultimedia01@gmail.com">universmultimedia01@gmail.com</a> (Meximieux)<br>
+                                <a href="mailto:cyber01500@gmail.com">cyber01500@gmail.com</a> (Ambérieu)
+                            </p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">📍</div>
+                        <div class="contact-icon" aria-hidden="true">📍</div>
                         <div class="contact-details">
-                            <h3>Adresses principales</h3>
-                            <p>45 Rue de Genève, 01800 Meximieux <br> 33 Av. Paul Painlevé, 01500 Ambérieu-en-Bugey</p>
+                            <h3>Adresses</h3>
+                            <p>
+                                45 Rue de Genève, 01800 Meximieux<br>
+                                33 Av. Paul Painlevé, 01500 Ambérieu-en-Bugey
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Univers Multimédia, Tous droits réservés</p>
-        <p>Réparation • Vente d'accessoires • Cyber</p>
+        <p>&copy; 2026 Univers Multimédia - Tous droits réservés</p>
+        <p>Réparation • Vente d'accessoires • Services informatiques</p>
     </footer>
 
     <script src="script.js"></script>

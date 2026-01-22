@@ -1,4 +1,4 @@
-/* RESET ET VARIABLES */
+/* ===== RESET ET VARIABLES ===== */
 * {
     margin: 0;
     padding: 0;
@@ -7,70 +7,79 @@
 
 :root {
     --primary-color: #ff6d00;
+    --primary-hover: #ff8534;
     --dark-bg: #1a1a1a;
     --medium-bg: #252525;
     --light-text: #ffffff;
     --dark-text: #222222;
     --gray-text: #666666;
+    --light-gray: #f8f8f8;
+    --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 5px 25px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.15);
+    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-    body {
+html {
+    scroll-behavior: smooth;
+}
+
+body {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     background-image: url("IMAGES/LOOP_MOTIF/UNIVERS - MULTIMEDIA LOOP.png");
     background-repeat: repeat;
     background-size: 2000px 1125px;
     animation: bg-scroll 90s linear infinite;
     will-change: background-position;
-
-    }
-
-    @keyframes bg-scroll {
-    from {
-        background-position: 0 0;
-    }
-    to {
-        background-position: -1024px 0;
-    }
+    display: flex;
+    flex-direction: column;
 }
 
-/* HEADER */
+@keyframes bg-scroll {
+    from { background-position: 0 0; }
+    to { background-position: -2000px 0; }
+}
+
+/* ===== HEADER ===== */
 header {
     background: var(--dark-bg);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-md);
     position: sticky;
     top: 0;
     z-index: 1000;
-    transition: var(--transition);
-    border-bottom: 5px solid var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
 }
 
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%;
+    padding: 1rem 5%;
     max-width: 1400px;
     margin: 0 auto;
 }
 
-/* LOGO */
+/* ===== LOGO ===== */
 .logo img {
-    height: 80px;
+    height: 60px;
+    width: auto;
     transition: transform 0.3s ease;
+    display: block;
 }
 
 .logo img:hover {
     transform: scale(1.05);
 }
 
-/* NAVIGATION */
+/* ===== NAVIGATION ===== */
 nav {
     display: flex;
-    gap: 40px;
+    gap: 2rem;
     align-items: center;
 }
 
@@ -78,8 +87,8 @@ nav a {
     text-decoration: none;
     color: var(--light-text);
     font-weight: 600;
-    font-size: 16px;
-    padding: 10px 20px;
+    font-size: 1rem;
+    padding: 0.5rem 1.25rem;
     border-radius: 8px;
     transition: var(--transition);
     position: relative;
@@ -109,20 +118,22 @@ nav a:hover {
 
 nav a.active {
     color: var(--primary-color);
-    background: rgba(255, 111, 0, 0.15);
+    background: rgba(255, 109, 0, 0.15);
 }
 
-/* BURGER MENU */
+/* ===== BURGER MENU ===== */
 .burger {
     display: none;
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
     padding: 10px;
+    background: transparent;
+    border: none;
 }
 
 .burger span {
-    width: 30px;
+    width: 28px;
     height: 3px;
     background: var(--light-text);
     border-radius: 3px;
@@ -130,7 +141,7 @@ nav a.active {
 }
 
 .burger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
+    transform: rotate(45deg) translate(7px, 7px);
 }
 
 .burger.active span:nth-child(2) {
@@ -141,10 +152,10 @@ nav a.active {
     transform: rotate(-45deg) translate(7px, -7px);
 }
 
-/* MAIN CONTENT */
+/* ===== MAIN CONTENT ===== */
 main {
     flex: 1;
-    padding: 60px 5%;
+    padding: 3rem 5%;
     max-width: 1400px;
     margin: 0 auto;
     width: 100%;
@@ -152,12 +163,12 @@ main {
 
 .hero {
     text-align: center;
-    padding: 80px 20px;
-    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
     border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    margin-bottom: 60px;
-    animation: fadeInUp 0.8s ease;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 3rem;
+    animation: fadeInUp 0.6s ease;
 }
 
 @keyframes fadeInUp {
@@ -172,67 +183,100 @@ main {
 }
 
 .hero h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    margin-bottom: 1rem;
     background: linear-gradient(90deg, var(--dark-text) 0%, var(--primary-color) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    letter-spacing: 3px;
+    font-weight: 800;
+    line-height: 1.2;
 }
 
 .hero p {
-    font-size: 20px;
+    font-size: clamp(1rem, 2vw, 1.25rem);
     color: var(--gray-text);
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
     line-height: 1.6;
 }
 
-/* SERVICES SECTION */
+/* ===== SERVICES SECTION ===== */
 .services {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin: 60px 0;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
 }
 
 .service-card {
     background: white;
-    padding: 40px 30px;
+    padding: 2rem 1.5rem;
     border-radius: 15px;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    box-shadow: var(--shadow-md);
     transition: var(--transition);
     text-align: center;
 }
 
 .service-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
     box-shadow: 0 15px 40px rgba(255, 109, 0, 0.2);
 }
 
 .service-icon {
-    font-size: 48px;
-    margin-bottom: 20px;
-    color: var(--primary-color);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 .service-card h3 {
-    font-size: 50px;
-    margin-bottom: 15px;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
     color: var(--dark-text);
-    font-family: novamono;
-    letter-spacing: 3px;
+    font-weight: 700;
 }
 
 .service-card p {
     color: var(--gray-text);
     line-height: 1.6;
+    font-size: 0.95rem;
 }
 
-/* CONTACT PAGE */
-.contact-container {
+/* ===== CONTENT CARD ===== */
+.content-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow-md);
     max-width: 800px;
+    margin: 0 auto;
+}
+
+.content-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--dark-text);
+    margin-top: 1.5rem;
+}
+
+.content-card h3:first-child {
+    margin-top: 0;
+}
+
+.content-card p {
+    color: var(--gray-text);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+/* ===== CONTACT PAGE ===== */
+.contact-container {
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -240,30 +284,29 @@ main {
     background: white;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-    margin-bottom: 40px;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 2.5rem;
 }
 
 .schedule-table h2 {
     background: var(--dark-bg);
     color: var(--light-text);
-    padding: 25px;
-    font-size: 45px;
-    font-family: novamono;
+    padding: 1.5rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
     text-align: center;
-    letter-spacing: 3px;
+    font-weight: 700;
 }
 
 .schedule-row {
     display: flex;
     justify-content: space-between;
-    padding: 20px 30px;
+    padding: 1rem 1.5rem;
     border-bottom: 1px solid #e0e0e0;
-    transition: var(--transition);
+    transition: var(--transition-fast);
 }
 
 .schedule-row:hover {
-    background: #f8f8f8;
+    background: var(--light-gray);
 }
 
 .schedule-row:last-child {
@@ -273,10 +316,12 @@ main {
 .day {
     font-weight: 600;
     color: var(--dark-text);
+    font-size: 1rem;
 }
 
 .hours {
     color: var(--gray-text);
+    font-size: 0.95rem;
 }
 
 .hours.open {
@@ -285,7 +330,7 @@ main {
 }
 
 .hours.closed {
-    color: #ff1100;
+    color: #f44336;
     font-weight: 600;
     font-style: italic;
 }
@@ -293,24 +338,17 @@ main {
 .contact-info {
     background: white;
     border-radius: 15px;
-    padding: 40px;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-}
-
-.contact-info h2 {
-    font-size: 28px;
-    margin-bottom: 30px;
-    color: var(--dark-text);
-    text-align: center;
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
 }
 
 .contact-item {
     display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-    margin-bottom: 15px;
-    background: #f8f8f8;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    background: var(--light-gray);
     border-radius: 10px;
     transition: var(--transition);
 }
@@ -321,55 +359,57 @@ main {
 }
 
 .contact-icon {
-    font-size: 24px;
-    color: var(--primary-color);
+    font-size: 1.75rem;
+    min-width: 40px;
 }
 
 .contact-details h3 {
-    font-size: 16px;
+    font-size: 0.875rem;
     color: var(--gray-text);
-    margin-bottom: 5px;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .contact-details p {
-    font-size: 18px;
+    font-size: 1rem;
     color: var(--dark-text);
-    font-weight: 600;
+    font-weight: 500;
+    line-height: 1.6;
 }
 
 .contact-details a {
     color: var(--dark-text);
     text-decoration: none;
-    transition: var(--transition);
+    transition: var(--transition-fast);
 }
 
 .contact-details a:hover {
     color: var(--primary-color);
 }
 
-/* SHOPS PAGE */
+/* ===== BOUTIQUES PAGE ===== */
 .map-container {
-    background: rgb(255, 255, 255);
+    background: white;
     border-radius: 15px;
-    padding: 40px;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-    margin-bottom: 40px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow-md);
 }
 
 .map-container h2 {
-    font-size: 50px;
-    margin-bottom: 30px;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: 0.5rem;
     text-align: center;
     color: var(--dark-text);
-    font-family: novamono;
-    letter-spacing: 2px;
+    font-weight: 700;
 }
 
-.map-container h4 {
-    font-size: 15px;
-    margin-bottom: 30px;
+.subtitle {
     text-align: center;
-    color: var(--dark-text);
+    color: var(--gray-text);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    font-style: italic;
 }
 
 .interactive-map {
@@ -377,50 +417,70 @@ main {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
-    padding: 60px 20px;
+    padding: 3rem 1rem;
     background: linear-gradient(180deg, #969696 0%, #252525 100%);
     border-radius: 20px;
-    min-height: 500px;
+    min-height: 450px;
 }
 
-.interactive-map img {
+.map-image {
     width: 100%;
-    max-width: 1000px; /* ← C’EST ICI QUE TU GÈRES LA TAILLE */
     height: auto;
     display: block;
     margin: 0 auto;
 }
 
+/* ===== ÉPINGLES MAP - POSITIONS FIXES ===== */
 .map-pin {
     position: absolute;
     cursor: pointer;
     transition: var(--transition);
+    z-index: 10;
+}
+
+/* Position Meximieux - adaptative */
+.map-pin[data-shop="meximieux"] {
+    top: 55%;
+    left: 30%;
+}
+
+/* Position Ambérieu - adaptative */
+.map-pin[data-shop="amberieu"] {
+    top: 50%;
+    left: 42%;
 }
 
 .pin-marker {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     background: var(--primary-color);
     border-radius: 50% 50% 50% 0;
     transform: rotate(-45deg);
     border: 3px solid white;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    box-shadow: var(--shadow-sm);
+    animation: bounce 2s ease-in-out infinite;
 }
 
 @keyframes bounce {
     0%, 100% { transform: rotate(-45deg) translateY(0); }
-    50% { transform: rotate(-45deg) translateY(-10px); }
+    50% { transform: rotate(-45deg) translateY(-8px); }
+}
+
+.map-pin:hover .pin-marker {
+    animation: none;
+    transform: rotate(-45deg) scale(1.15);
+    background: var(--primary-hover);
 }
 
 .shop-info {
     position: absolute;
-    bottom: 100%;
+    bottom: calc(100% + 15px);
     left: 50%;
     transform: translateX(-50%);
-    margin-bottom: 20px;
     opacity: 0;
     pointer-events: none;
     transition: var(--transition);
+    z-index: 100;
 }
 
 .map-pin:hover .shop-info {
@@ -430,15 +490,17 @@ main {
 
 .shop-card {
     background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    min-width: 100px;
+    padding: 1.25rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    min-width: 220px;
     text-align: center;
+    transform: scale(0.95);
+    transition: var(--transition);
 }
 
 .map-pin:hover .shop-card {
-    transform: scale(1.1);
+    transform: scale(1);
 }
 
 .shop-image {
@@ -446,73 +508,90 @@ main {
     height: 120px;
     object-fit: cover;
     border-radius: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 0.75rem;
 }
 
 .shop-card h3 {
-    font-size: 18px;
+    font-size: 1.125rem;
     color: var(--dark-text);
-    margin-bottom: 5px;
+    margin-bottom: 0.25rem;
+    font-weight: 700;
 }
 
 .shop-card p {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--gray-text);
+    margin-bottom: 0.25rem;
 }
 
-/* FOOTER */
+.shop-address {
+    font-size: 0.75rem !important;
+    color: var(--gray-text) !important;
+    margin-top: 0.5rem !important;
+    line-height: 1.4;
+}
+
+/* ===== FOOTER ===== */
 footer {
     background: var(--dark-bg);
     color: var(--light-text);
     text-align: center;
-    padding: 30px 20px;
-    font-size: 14px;
-    border-top: 5px solid var(--primary-color);
+    padding: 2rem 1.25rem;
+    font-size: 0.875rem;
+    border-top: 3px solid var(--primary-color);
+    margin-top: auto;
 }
 
 footer p {
-    margin-bottom: 10px;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
 }
 
-/* PAGE CONTENT DISPLAY */
+/* ===== PAGE CONTENT DISPLAY ===== */
 .page-content {
     display: none;
 }
 
 .page-content.active {
     display: block;
-    animation: fadeInUp 0.6s ease;
+    animation: fadeInUp 0.5s ease;
 }
 
-/* RESPONSIVE */
-@media (max-width: 1920px) {
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Large Desktop */
+@media (min-width: 1920px) {
     .header-container {
-        padding: 15px 3%;
+        padding: 1.25rem 3%;
     }
 
     nav {
-        gap: 20px;
+        gap: 2.5rem;
     }
 
-    
     nav a {
-        padding: 8px 15px;
-        font-size: 30px;
-        font-family: novamono;
-        letter-spacing: 3px;
-    }
-
-    .hero h1 {
-        font-size: 75px;
-        font-family: novamono;
-        letter-spacing: 3px;
+        font-size: 1.125rem;
+        padding: 0.625rem 1.5rem;
     }
 }
 
-.novamono {
-    font-family: 'NovaMono', monospace;
+/* Tablet */
+@media (max-width: 1024px) {
+    main {
+        padding: 2rem 4%;
+    }
+
+    .hero {
+        padding: 3rem 1.5rem;
+    }
+
+    .services {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
 }
 
+/* Mobile */
 @media (max-width: 768px) {
     .burger {
         display: flex;
@@ -533,56 +612,121 @@ footer p {
 
     nav.active {
         max-height: 400px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        box-shadow: var(--shadow-lg);
     }
 
     nav a {
         width: 100%;
-        padding: 20px;
+        padding: 1.25rem;
         border-radius: 0;
         text-align: center;
         border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
+    main {
+        padding: 2rem 4%;
+    }
+
     .hero {
-        padding: 50px 20px;
-    }
-
-    .hero h1 {
-        font-size: 32px;
-    }
-
-    .hero p {
-        font-size: 18px;
+        padding: 2.5rem 1.25rem;
+        margin-bottom: 2rem;
     }
 
     .services {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .schedule-row {
-        padding: 15px 20px;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem 1.25rem;
     }
 
     .contact-info {
-        padding: 25px;
+        padding: 1.5rem;
+    }
+
+    .contact-item {
+        padding: 1rem;
+    }
+
+    .map-container {
+        padding: 1.5rem;
+    }
+
+    .interactive-map {
+        padding: 2rem 0.5rem;
+        min-height: 350px;
+    }
+
+    /* Ajustement positions épingles mobile */
+    .map-pin[data-shop="meximieux"] {
+        top: 53%;
+        left: 28%;
+    }
+
+    .map-pin[data-shop="amberieu"] {
+        top: 48%;
+        left: 40%;
+    }
+
+    .pin-marker {
+        width: 24px;
+        height: 24px;
+    }
+
+    .shop-card {
+        min-width: 180px;
+        padding: 1rem;
+    }
+
+    .shop-image {
+        height: 100px;
     }
 }
 
+/* Small Mobile */
 @media (max-width: 480px) {
     .logo img {
-        height: 60px;
-    }
-
-    .hero h1 {
-        font-size: 26px;
-    }
-
-    .hero p {
-        font-size: 16px;
+        height: 50px;
     }
 
     main {
-        padding: 30px 3%;
+        padding: 1.5rem 3%;
+    }
+
+    .hero {
+        padding: 2rem 1rem;
+    }
+
+    .service-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .content-card {
+        padding: 1.5rem;
+    }
+
+    .contact-container {
+        padding: 0;
+    }
+
+    .schedule-table h2 {
+        padding: 1.25rem;
+    }
+
+    .map-container {
+        padding: 1rem;
+    }
+
+    .interactive-map {
+        padding: 1.5rem 0.25rem;
+        min-height: 300px;
+    }
+
+    .shop-card {
+        min-width: 160px;
+        padding: 0.875rem;
     }
 }
